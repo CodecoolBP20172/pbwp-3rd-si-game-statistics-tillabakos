@@ -17,3 +17,17 @@ def count_games(file_name):
     return count_n
 
 
+def decide(file_name, year):
+    with open(file_name) as f:
+        reader = csv.reader(f, delimiter="\t")
+        d_items = list(reader)
+        # print(d_items)
+        in_list = []
+        for i in d_items:
+            in_list = in_list.append(i([2]))
+            for y in in_list:
+                y == year
+    return in_list
+
+
+decide('game_stat.txt', 1999)

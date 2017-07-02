@@ -4,6 +4,11 @@ import pprint
 # Printing functions
 
 
-def print_count_games():
-    game_count = count_games('game_stat.txt')
-    print(game_count)
+def print_count_games(file_name):
+    game_count = count_games(file_name)
+    return game_count
+
+print(print_count_games('game_stat.txt'), 'ok')
+
+
+# def main_print():

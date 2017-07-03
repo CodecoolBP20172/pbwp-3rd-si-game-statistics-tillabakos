@@ -22,15 +22,13 @@ def decide(file_name, year):
     with open(file_name) as f:
         reader = csv.reader(f, delimiter="\t")
         d_items = list(reader)
-        # print(d_items)
         in_list = []
         for i in d_items[:]:
             in_list.append(int(i[2]))
-        # print(in_list)
         for y in in_list:
             if y == year:
-                print('ok')
-            elif y != year:
-                print('not in row')
-
-print(decide('game_stat.txt', 1989))
+                rv = True
+                break
+            else:
+                rv = False
+        return rv

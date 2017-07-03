@@ -4,7 +4,8 @@ from collections import Counter
 '''
 error handling
   - last row in file has no new line
-  - more than 1 empty lines after last line with string 
+  - more than 1 empty lines after last line with string
+  - empty lines inbetween ?
 '''
 
 # Report functions
@@ -32,3 +33,17 @@ def decide(file_name, year):
             else:
                 rv = False
         return rv
+
+
+def get_latest(file_name):
+    title = []
+    year = []
+    with open(file_name) as f:
+        reader = csv.reader(f, delimiter="\t")
+        d_items = list(reader)
+        for t in d_items:
+            title.append(t[0])
+        for y in d_items:
+            year.append(int(y[2]))
+        t_index = year.index(max(year))
+        return(title[t_index])

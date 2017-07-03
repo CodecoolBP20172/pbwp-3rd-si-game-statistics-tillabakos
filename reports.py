@@ -1,3 +1,4 @@
+import csv
 from collections import Counter
 
 '''
@@ -23,11 +24,13 @@ def decide(file_name, year):
         d_items = list(reader)
         # print(d_items)
         in_list = []
-        for i in d_items:
-            in_list = in_list.append(i([2]))
-            for y in in_list:
-                y == year
-    return in_list
+        for i in d_items[:]:
+            in_list.append(int(i[2]))
+        # print(in_list)
+        for y in in_list:
+            if y == year:
+                print('ok')
+            elif y != year:
+                print('not in row')
 
-
-decide('game_stat.txt', 1999)
+print(decide('game_stat.txt', 1989))

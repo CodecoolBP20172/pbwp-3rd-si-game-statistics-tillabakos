@@ -32,7 +32,7 @@ def decide(file_name, year):
                 break
             else:
                 rv = False
-        return rv
+    return rv
 
 
 def get_latest(file_name):
@@ -46,4 +46,18 @@ def get_latest(file_name):
         for y in d_items:
             year.append(int(y[2]))
         t_index = year.index(max(year))
-        return(title[t_index])
+    return(title[t_index])
+
+
+def count_by_genre(file_name, genre):
+    genre_count = []
+    game_index = []
+    with open(file_name) as f:
+        reader = csv.reader(f, delimiter="\t")
+        d_items = list(reader)
+        # print(d_items)
+        for i in d_items:    
+            if i[3] == genre:
+                genre_count.append(i[3]) 
+        print(genre_count)
+    return len(genre_count)

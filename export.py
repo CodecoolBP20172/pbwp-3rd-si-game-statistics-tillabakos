@@ -36,18 +36,3 @@ def export_get_line_number_by_title(report_file, file_name, title):
     with open(report_file, "a") as f:
         f.write(str(export_line_number) + '\n')
     return export_line_number
-
-
-def main():
-    report_file = 'report.txt'
-    file_name = 'game_stat.txt'
-    year = 1900
-    genre = 'RPG'
-    title = 'Counter-Strike'
-    export_count_games(report_file, file_name)
-    export_decide(report_file, file_name, year)
-    export_get_latest(report_file, file_name)
-    export_count_by_genre(report_file, file_name, genre)
-    export_get_line_number_by_title(report_file, file_name, title)
-
-main()

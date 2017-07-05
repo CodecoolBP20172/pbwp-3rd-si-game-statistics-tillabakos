@@ -20,10 +20,10 @@ def count_games(file_name):
 
 
 def decide(file_name, year):
+    in_list = []
     with open(file_name) as f:
         reader = csv.reader(f, delimiter="\t")
         d_items = list(reader)
-        in_list = []
         for i in d_items[:]:
             in_list.append(int(i[2]))
         for y in in_list:
@@ -55,9 +55,27 @@ def count_by_genre(file_name, genre):
     with open(file_name) as f:
         reader = csv.reader(f, delimiter="\t")
         d_items = list(reader)
-        # print(d_items)
         for i in d_items:    
             if i[3] == genre:
-                genre_count.append(i[3]) 
-        print(genre_count)
+                genre_count.append(i[3])
+                # break maybe
     return len(genre_count)
+
+
+def get_line_number_by_title(file_name, title):
+    in_list = []
+    with open(file_name) as f:
+        reader = csv.reader(f, delimiter="\t")
+        d_items = list(reader)
+    # print(d_items)
+    for i in d_items:
+        in_list.append(i[0])
+    print(in_list) 
+    for g in in_list:
+        if g == title:
+            g_index = in_list.index(g)
+    print(g_index)
+    return g_index
+
+
+get_line_number_by_title('game_stat.txt', 'Diablo III')

@@ -1,13 +1,6 @@
 import csv
 from collections import Counter
 
-'''
-error handling
-  - last row in file has no new line
-  - more than 1 empty lines after last line with string
-  - empty lines inbetween ?
-'''
-
 # Report functions
 
 
@@ -58,7 +51,6 @@ def count_by_genre(file_name, genre):
         for i in d_items:    
             if i[3] == genre:
                 genre_count.append(i[3])
-                # break maybe
     return len(genre_count)
 
 
@@ -67,15 +59,10 @@ def get_line_number_by_title(file_name, title):
     with open(file_name) as f:
         reader = csv.reader(f, delimiter="\t")
         d_items = list(reader)
-    # print(d_items)
     for i in d_items:
-        in_list.append(i[0])
-    print(in_list) 
+        in_list.append(i[0]) 
     for g in in_list:
         if g == title:
             g_index = in_list.index(g)
-    print(g_index)
+            g_index = g_index + 1
     return g_index
-
-
-get_line_number_by_title('game_stat.txt', 'Diablo III')

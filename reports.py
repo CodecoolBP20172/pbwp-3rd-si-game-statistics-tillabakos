@@ -62,9 +62,12 @@ def get_line_number_by_title(file_name, title):
     for i in d_items:
         in_list.append(i[0]) 
     for g in in_list:
-        if g == title:
-            g_index = in_list.index(g)
-            g_index = g_index + 1
-    return g_index
+        if g != title:
+            break
+        else:
+            if g == title:
+                g_index = in_list.index(g)
+                g_index = g_index + 1
+        return g_index
 
-# tested
+get_line_number_by_title('game_stat.txt', 'The Sims')

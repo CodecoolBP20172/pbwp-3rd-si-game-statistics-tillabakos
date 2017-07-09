@@ -48,28 +48,28 @@ def get_game(file_name, title):
     return g_list
 
 
-def from_filetolist(file_name, index1, index2):
-    line = [[line.split("\t")[index1], line.split("\t")[index2]]
-            for line in open(file_name)]
-    return line
+# helper function. returns a list comprehension from file with
+# two items by line
 
+def from_filetolist(file_name, index1, index2):
+    by_line = [[by_line.split("\t")[index1], by_line.split("\t")[index2]]
+               for by_line in open(file_name)]
+    return by_line
+
+
+# helper function. returns a list comprehension from file with
+# a single item by line
 
 def from_file_singleitem(file_name, index):
-    line = [[line.split("\t")[index]]
-            for line in open(file_name)]
-    return line
+    by_line = [[by_line.split("\t")[index]]
+               for by_line in open(file_name)]
+    return by_line
 
+
+# helper function. returns a list comprehension from file with
+# all items by line
 
 def from_file(file_name):
     all_list = [[line.split("\t")[0:5]]
                 for line in open(file_name)]
     return all_list
-'''
-    new = [[item.replace('\n', '') for item in i] for i in all_list]
-    return full_list
-'''
-
-print(get_game('game_stat.txt', 'Counter-Strike'))
-# print(from_file('game_stat.txt'))
-# print(get_date_avg('game_stat.txt'))
-# print(from_filetolist('game_stat.txt', 0, 1))
